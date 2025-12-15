@@ -1,0 +1,3 @@
+<x-layout.post title="Profil LPMPP">
+    <p>Di era global, persaingan antar perguruan tinggi semakin terbuka. Mutu menjadi kunci sukses (key factor success) suatu perguruan tinggi agar memperoleh kepercayaan berkelanjutan (sustainable trust) dan berkonstribusi terhadap stakeholders (mahasiswa, orang tua, dunia kerja, pemerintah, dosen, tenaga penunjang, dan pihak-pihak lain yang berkepentingan). Oleh karena itu, sejak dirumuskannya Strategi Jangka Panjang Pendidikan Tinggi (Higher Education Long Term Stategy, HELTS 2003-2010, penjaminan mutu (Quality Assurance) merupakan salah satu kebutuhan utama setiap perguruan tinggi.</p>
+</x-layout.post>
