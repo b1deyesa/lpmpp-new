@@ -849,6 +849,14 @@ $color-7: #FEFEFE;
     }
 }
 
+.empty {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    font-size: .9em;
+    color: #AAA;
+}
 
 .article {
     display: flex;

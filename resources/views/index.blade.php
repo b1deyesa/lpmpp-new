@@ -333,42 +333,46 @@
                 <h2 class="header__title">Berita Terkini</h2>
                 <hr>
             </header>
-            <div class="berita__post">
-                <div href="{{ route('berita.show', ['beritum' => $beritas?->first()]) }}" class="post__top">
-                    @if ($beritas?->first()->cover)
-                        <img src="{{ asset('storage/berita/'. $beritas?->first()->cover) }}" class="post__thumbnail">
-                    @else
-                        <img src="{{ asset('img/default.jpg') }}" class="post__thumbnail">
-                    @endif
-                    <div class="item__right">
-                        <h2 class="post__title">{{ Str::limit($beritas?->first()->title, 50) }}</h2>
-                        <div class="item__info">
-                            <small><i class="far fa-clock"></i>{{ $beritas?->first()->created_at?->format('d F Y') }}</small>
-                        </div>
-                        <p class="post__excerpt">{{ Str::limit(html_entity_decode(strip_tags($beritas?->first()?->body ?? '')), 220) }}</p>
-                        <x-button type="link" href="{{ route('berita.show', ['beritum' => $beritas?->first()]) }}) }}" class="post__button">Baca Selengkapnya</x-button>
-                    </div>
-                </div>
-                <div class="post__bottom">
-                    @foreach ($beritas?->slice(1)->take(3) as $berita)
-                        <div href="{{ route('berita.show', ['beritum' => $berita]) }}" class="post__item">
-                            @if ($berita->cover)
-                                <img src="{{ asset('storage/berita/'. $berita->cover) }}" class="post__thumbnail">
-                            @else
-                                <img src="{{ asset('img/default.jpg') }}" class="post__thumbnail">
-                            @endif
-                            <div class="item__bottom">
-                                <h2 class="post__title">{{ Str::limit($berita->title, 50) }}</h2>
-                                <div class="item__info">
-                                    <small><i class="far fa-clock"></i>{{ $berita->created_at?->format('d F Y') }}</small>
-                                </div>
-                                <x-button type="link" href="{{ route('berita.show', ['beritum' => $berita]) }}) }}" class="post__button">Baca Selengkapnya</x-button>
+            @if ($beritas->count() > 0)
+                <div class="berita__post">
+                    <div href="{{ route('berita.show', ['beritum' => $beritas?->first()]) }}" class="post__top">
+                        @if ($beritas?->first()->cover)
+                            <img src="{{ asset('storage/berita/'. $beritas?->first()->cover) }}" class="post__thumbnail">
+                        @else
+                            <img src="{{ asset('img/default.jpg') }}" class="post__thumbnail">
+                        @endif
+                        <div class="item__right">
+                            <h2 class="post__title">{{ Str::limit($beritas?->first()->title, 50) }}</h2>
+                            <div class="item__info">
+                                <small><i class="far fa-clock"></i>{{ $beritas?->first()->created_at?->format('d F Y') }}</small>
                             </div>
+                            <p class="post__excerpt">{{ Str::limit(html_entity_decode(strip_tags($beritas?->first()?->body ?? '')), 220) }}</p>
+                            <x-button type="link" href="{{ route('berita.show', ['beritum' => $beritas?->first()]) }}) }}" class="post__button">Baca Selengkapnya</x-button>
                         </div>
-                    @endforeach
+                    </div>
+                    <div class="post__bottom">
+                        @foreach ($beritas?->slice(1)->take(3) as $berita)
+                            <div href="{{ route('berita.show', ['beritum' => $berita]) }}" class="post__item">
+                                @if ($berita->cover)
+                                    <img src="{{ asset('storage/berita/'. $berita->cover) }}" class="post__thumbnail">
+                                @else
+                                    <img src="{{ asset('img/default.jpg') }}" class="post__thumbnail">
+                                @endif
+                                <div class="item__bottom">
+                                    <h2 class="post__title">{{ Str::limit($berita->title, 50) }}</h2>
+                                    <div class="item__info">
+                                        <small><i class="far fa-clock"></i>{{ $berita->created_at?->format('d F Y') }}</small>
+                                    </div>
+                                    <x-button type="link" href="{{ route('berita.show', ['beritum' => $berita]) }}) }}" class="post__button">Baca Selengkapnya</x-button>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <x-button type="link" href="" class="berita__button">Lihat Semua Berita</x-button>
                 </div>
-                <x-button type="link" href="" class="berita__button">Lihat Semua Berita</x-button>
-            </div>
+            @else
+                <small class="empty">Belum ada</small>
+            @endif
         </div>
     </section>
     
